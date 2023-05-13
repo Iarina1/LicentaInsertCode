@@ -1,4 +1,0 @@
-language: c
-script:
-  - gcc -o main main.c
-  - ./main
