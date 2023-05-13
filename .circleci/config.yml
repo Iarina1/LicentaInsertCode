@@ -11,21 +11,8 @@ jobs:
       - checkout
 
       - run:
-          name: Install Arduino CLI
-          command: |
-            curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | BINDIR=/usr/local/bin sh
-
-      - run:
-          name: Install Arduino board support
-          command: arduino-cli core install arduino:avr
-
-      - run:
-          name: Install Arduino libraries
-          command: arduino-cli lib install "Arduino PinChangeInterrupt" "Arduino LowPower"
-
-      - run:
           name: Compile the code
-          command: arduino-cli compile --fqbn arduino:avr:uno .
+          command: arduino-cli compile --fqbn arduino:avr:uno ./problema1.ino
 
       - store_artifacts:
           path: build
