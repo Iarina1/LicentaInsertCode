@@ -11,6 +11,10 @@ jobs:
       - checkout
       
       - run:
+          name: Install Arduino board support
+          command: arduino-cli core install arduino:avr
+      
+      - run:
           name: Compile the code
           command: arduino-cli compile --fqbn arduino:avr:uno ./problema1.ino
           
