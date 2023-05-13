@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: circleci/circleci-golang:1.16
+      - image: zoobab/arduino-cli:latest
         auth:
           username: iarina
           password: W2tDS,whc! 
