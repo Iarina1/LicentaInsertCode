@@ -16,7 +16,7 @@ jobs:
       
       - run:
           name: Compile the code
-          command: arduino-cli compile --fqbn arduino:avr:uno --build-path build problema1.ino
+          command: arduino --verify --board arduino:avr:uno $PWD/problema1.ino
           
       - store_artifacts:
           path: build
