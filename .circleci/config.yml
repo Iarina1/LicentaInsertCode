@@ -1,25 +1,21 @@
-## Customize the test machine
-machine:
+version: 2
+jobs:
+  build-arduino-default:
+    machine: true
+    steps:
+      - checkout
+      - run:
+          name: Make scripts executable 
+          command: sudo chmod -R +x ./.circleci/*.sh
+      - run:
+          name: Install
+          command: ./.circleci/install_arduino.sh
+      - run:
+          name: Build
+          command: ./.circleci/script_arduino.sh
 
-  timezone:
-    America/New_York # Set the timezone
-
-  # Add some environment variables
-  environment:
-    WORK_DIR: pwd
-    DISPLAY: :1.0
-
-## Customize dependencies
-dependencies:
-  pre:
-    - /sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_1.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :1 -ac -screen 0 1280x1024x16
-    - wget http://downloads.arduino.cc/arduino-1.6.5-linux64.tar.xz
-    - tar xf arduino-1.6.5-linux64.tar.xz
-    - sudo mv arduino-1.6.5 /usr/local/share/arduino
-    - sudo ln -s /usr/local/share/arduino/arduino /usr/local/bin/arduino
-  override:
-
-## Customize test commands
-test:
-  override:
-    - arduino --verify --board arduino:avr:uno $PWD/problema1.ino
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build-arduino-default
