@@ -1,31 +1,25 @@
 version: 2.1
+
 jobs:
   build:
     docker:
-      - image: circleci/circleci-golang:1.16
+      - image: circleci/classic:latest
 
     steps:
       - checkout
 
+      # Install Arduino IDE
       - run:
-          name: Install Arduino CLI
+          name: Install Arduino IDE
           command: |
-            curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | BINDIR=/usr/local/bin sh
+            sudo apt-get update
+            sudo apt-get install -y curl unzip
+            curl -fsSL https://downloads.arduino.cc/arduino-1.8.15-linux64.tar.xz | tar xJf -
+            sudo mv arduino-1.8.15 /usr/local/share/arduino
+            sudo ln -s /usr/local/share/arduino/arduino /usr/local/bin/arduino
 
+      # Compile Arduino code
       - run:
-          name: Install Arduino board support
-          command: arduino-cli core install arduino:avr
-
-      - run:
-          name: Install Arduino libraries
-          command: arduino-cli lib install "Arduino PinChangeInterrupt" "Arduino LowPower"
-
-      - run:
-          name: Compile the code
-          command: arduino-cli compile --fqbn arduino:avr:uno .
-
-      - store_artifacts:
-          path: build
-
-      - store_test_results:
-          path: test-results
+          name: Compile Arduino code
+          command: |
+            arduino --verify --board arduino:avr:uno --port /dev/ttyACM0 ./problema1.ino
