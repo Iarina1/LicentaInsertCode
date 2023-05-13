@@ -4,15 +4,18 @@ jobs:
     machine: true
     steps:
       - checkout
+      
       - run:
           name: Make scripts executable 
           command: sudo chmod -R +x ./.circleci/*.sh
+          
       - run:
           name: Install
           command: ./.circleci/install_arduino.sh
+          
       - run:
           name: Build
-          command: ./.circleci/script_arduino.sh
+          command: arduino-cli compile --output temp.bin -b esp32:esp32:esp32 $PWD/problema1.ino --debug
 
 workflows:
   version: 2
