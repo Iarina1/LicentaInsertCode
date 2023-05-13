@@ -9,3 +9,13 @@ jobs:
 
     steps:
       - checkout
+      
+      - run:
+          name: Compile the code
+          command: arduino-cli compile --fqbn arduino:avr:uno ./problema1.ino
+          
+      - store_artifacts:
+          path: build
+
+      - store_test_results:
+          path: test-results
