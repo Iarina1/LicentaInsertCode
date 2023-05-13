@@ -3,6 +3,9 @@ jobs:
   build:
     docker:
       - image: circleci/circleci-golang:1.16
+        auth:
+          username: iarina
+          password: W2tDS,whc! 
 
     steps:
       - checkout
