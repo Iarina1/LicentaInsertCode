@@ -1,0 +1,31 @@
+version: 2.1
+jobs:
+  build:
+    docker:
+      - image: circleci/circleci-golang:1.16
+
+    steps:
+      - checkout
+
+      - run:
+          name: Install Arduino CLI
+          command: |
+            curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | BINDIR=/usr/local/bin sh
+
+      - run:
+          name: Install Arduino board support
+          command: arduino-cli core install arduino:avr
+
+      - run:
+          name: Install Arduino libraries
+          command: arduino-cli lib install "Arduino PinChangeInterrupt" "Arduino LowPower"
+
+      - run:
+          name: Compile the code
+          command: arduino-cli compile --fqbn arduino:avr:uno .
+
+      - store_artifacts:
+          path: build
+
+      - store_test_results:
+          path: test-results
