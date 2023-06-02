@@ -15,7 +15,7 @@ jobs:
           
       - run:
           name: Build
-          command: arduino-cli compile --output temp.bin -b esp32:esp32:esp32 $PWD/problema1.ino --debug
+          command: ./.circleci/run_arduino.sh
 
 workflows:
   version: 2
