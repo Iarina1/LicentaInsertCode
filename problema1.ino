@@ -41,3 +41,6 @@ void setup() {
     RUN_TEST(test_led_state_high);
     UNITY_END();
 }
+
+void loop() {
+}
