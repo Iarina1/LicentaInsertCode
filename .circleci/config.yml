@@ -16,6 +16,9 @@ jobs:
       - run:
           name: Build
           command: ./.circleci/run_arduino.sh
+      - run:
+          name: Tests
+          command: ./.circleci/run_tests.sh
 
 workflows:
   version: 2
