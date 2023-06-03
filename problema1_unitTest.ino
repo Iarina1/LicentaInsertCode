@@ -1,7 +1,7 @@
 #include <Arduino.h>
 #include "unity.h"
 
-uint8_t led_pin = 5;
+/*uint8_t led_pin = 5;*/
 
 void test_led_state_high(void) {
     turn_led_on();
