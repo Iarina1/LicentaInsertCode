@@ -1,6 +1,6 @@
 #include <Arduino.h>
 
-void turn_led_on(led_pin) {
+void turn_led_on(uint8_t led_pin) {
     digitalWrite(led_pin, HIGH);
 }
 
