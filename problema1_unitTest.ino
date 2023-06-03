@@ -4,7 +4,7 @@
 uint8_t led_pin = 5;
 
 void test_led_state_high(void) {
-    turn_led_on();
+    turn_led_on(led_pin);
     TEST_ASSERT_EQUAL(HIGH, digitalRead(led_pin));
 }
 
