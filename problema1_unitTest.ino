@@ -15,8 +15,8 @@ void test_led_state_high(void) {
 }
 
 void setup() {
-    delay(2000);
     Serial.begin(9600);
+    delay(2000);
     UNITY_BEGIN();
     RUN_TEST(test_led_state_high);
     UNITY_END();
