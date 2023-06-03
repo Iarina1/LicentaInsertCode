@@ -1,4 +1,4 @@
 # git clone https://github.com/ThrowTheSwitch/Unity.git
 arduino-cli compile --output temp.bin -b esp32:esp32:esp32 $PWD/problema1.ino --debug
-ls -la
+ls -la $PWD/.circleci
 arduino-cli compile --output temp.bin -b esp32:esp32:esp32 $PWD/.circleci/problema1_test.ino --debug
