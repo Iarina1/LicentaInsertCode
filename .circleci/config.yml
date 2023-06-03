@@ -19,9 +19,9 @@ jobs:
       - run:
           name: Tests
           command: ./.circleci/run_tests.sh
-          
-      - store_test_results:
-          path: test-results
+      - store_artifacts:
+          path: /tmp/test_output.txt
+          destination: test_output
 
 workflows:
   version: 2
