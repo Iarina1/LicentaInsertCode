@@ -12,7 +12,7 @@ def check_problema1(problema1, string):
 
 problema1 = 'problema1.ino'
 string1 = 'led_pin=5'
-string2 = 'digitalWrite(HIGH,led_pin)'
+string2 =  'digitalWrite(led_pin, HIGH)'
 
 if check_problema1(problema1, string1):
     print("Test 1 passed")
