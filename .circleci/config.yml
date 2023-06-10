@@ -18,8 +18,8 @@ jobs:
           command: ./.circleci/build_problema1.sh
           
       - run:
-          name: Tests
-          command: ./.circleci/run_tests.sh
+          name: Test
+          command: ./.circleci/test_problema1.sh
           
       - store_artifacts:
           path: /tmp/build_output.txt
