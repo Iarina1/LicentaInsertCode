@@ -22,6 +22,9 @@ jobs:
       - store_artifacts:
           path: /tmp/test_output.txt
           destination: test_output
+      - store_artifacts:
+          path: /tmp/build_output.txt
+          destination: build_output 
 
 workflows:
   version: 2
