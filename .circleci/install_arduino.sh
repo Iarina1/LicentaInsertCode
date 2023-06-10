@@ -20,4 +20,4 @@ sudo mv .cli-config.yml /usr/local/share/
 arduino-cli core update-index
 arduino-cli core install esp32:esp32
 
-sudo apt-get install python3
+# sudo apt-get install python3
