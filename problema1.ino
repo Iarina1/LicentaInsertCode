@@ -9,7 +9,7 @@ void turn_led_on(uint8_t led_pin) {
 
 void test_led_state_high(void) {
     turn_led_on(led_pin);
-    int led_state = digitalRead(led_pin)
+    int led_state = digitalRead(led_pin);
     TEST_ASSERT_EQUAL(LOW, digitalRead(led_pin));
     if (led_state == HIGH) {
         Serial.println("LED state is HIGH. Test passed!");
