@@ -15,7 +15,7 @@ jobs:
           
       - run:
           name: Build
-          command: ./.circleci/run_arduino.sh
+          command: ./.circleci/build_problema1.sh
       - run:
           name: Tests
           command: ./.circleci/run_tests.sh
