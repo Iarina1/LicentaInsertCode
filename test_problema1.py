@@ -10,7 +10,7 @@ def check_problema1(problema1, string):
         print(f"Error: Could not open file '{file_path}'")
 
 
-file_path = 'problema1.ino'
+problema1 = 'problema1.ino'
 string1 = 'led_pin=5'
 string2 = 'digitalWrite(HIGH,led_pin)'
 
