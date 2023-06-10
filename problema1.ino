@@ -7,7 +7,7 @@ void turn_led_on(uint8_t led_pin) {
 }
 
 void setup() {
-    turn_led_on(led_pin)
+    turn_led_on(led_pin);
 }
 
 void loop() {
